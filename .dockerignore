@@ -4,3 +4,6 @@ dist
 .git
 .gitignore
 dockerfile
+use.txt
+verify_auth_flow.js
+verify_placeholder.js
