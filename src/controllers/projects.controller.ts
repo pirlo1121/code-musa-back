@@ -12,7 +12,7 @@ import { Request, Response } from 'express';
 import { AuthRequest } from '../middlewares/auth';
 
 export const getProjects = asyncHandler(async (req: Request, res: Response) => {
-  const projects = await Projects.find().lean();
+  const projects = await Projects.find().sort({ createdAt: -1 }).lean();
   return res.status(200).json({ ok: true, projects });
 });
 

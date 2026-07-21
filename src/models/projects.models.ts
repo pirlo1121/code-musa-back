@@ -8,6 +8,8 @@ export interface IProject extends Document {
     stack: string[];
     deploy?: string;
     userId: mongoose.Types.ObjectId;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 const projectsSchema = new mongoose.Schema<IProject>(
@@ -30,7 +32,8 @@ const projectsSchema = new mongoose.Schema<IProject>(
             ref: 'User',
             required: true
         }
-    }
+    },
+    { timestamps: true }
 );
 
 export const Projects = mongoose.model<IProject>('Project', projectsSchema);

@@ -54,5 +54,5 @@ const projectsSchema = new mongoose_1.default.Schema({
         ref: 'User',
         required: true
     }
-});
+}, { timestamps: true });
 exports.Projects = mongoose_1.default.model('Project', projectsSchema);

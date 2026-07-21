@@ -11,7 +11,7 @@ const projects_models_1 = require("../models/projects.models");
 const customErrors_1 = require("../errors/customErrors");
 const errorHandler_1 = require("../middlewares/errorHandler");
 exports.getProjects = (0, errorHandler_1.asyncHandler)(async (req, res) => {
-    const projects = await projects_models_1.Projects.find().lean();
+    const projects = await projects_models_1.Projects.find().sort({ createdAt: -1 }).lean();
     return res.status(200).json({ ok: true, projects });
 });
 exports.getOneProject = (0, errorHandler_1.asyncHandler)(async (req, res) => {

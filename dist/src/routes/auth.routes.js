@@ -16,5 +16,5 @@ router.post('/auth/login', limiter_1.limiter, auth_controller_1.login);
 router.post('/auth/logout', auth_controller_1.logout);
 router.put('/update/:id', auth_1.auth, multer_1.upload.single('image'), auth_controller_1.updateUser);
 router.patch('/update-image/:id', auth_1.auth, multer_1.upload.single('image'), auth_controller_1.updateUserImage);
-router.get('/get/:id', auth_1.auth, auth_controller_1.getUser);
+router.get('/get/:id', auth_controller_1.getUser);
 exports.default = router;
