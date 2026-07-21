@@ -8,16 +8,18 @@ import routerProjects from './src/routes/projects.routes';
 import routerContact from './src/routes/contact.routes';
 import { errorHandler, notFoundHandler } from './src/middlewares/errorHandler';
 import { cleanAll } from './src/middlewares/cleanAll';
+dotenv.config();
 const app = express();
 
 dotenv.config({ quiet: true });
 connectDb();
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors({
-//     origin: ['http://localhost:35245','http://localhost:4200'], 
-//     credentials: true
-// }));
+
+app.use(cors({
+    origin: [process.env.CLIENT1 ?? '' , process.env.CLIENT2 ?? ''], 
+    credentials: true
+}));
 app.use(cors());
 
 
